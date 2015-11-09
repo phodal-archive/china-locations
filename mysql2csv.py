@@ -34,6 +34,9 @@ with codecs.open("location.csv", "w", "utf-8") as text:
             for zone in zones:
                 tones = Sheng.select().where(Sheng.parentId == zone.id)
                 for tone in tones:
-                    print province.areaname + city.areaname + zone.areaname + tone.areaname
-                    # text.write("%s" % province.areaname + city.areaname + zone.areaname + tone.areaname)
+                    text.write("%s" % province.areaname)
+                    text.write(",%s" % city.areaname)
+                    text.write(",%s" % zone.areaname)
+                    text.write(",%s" % tone.areaname)
+                    text.write("\n")
 db.close()
