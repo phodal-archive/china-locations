@@ -38,5 +38,7 @@ with codecs.open("location.csv", "w", "utf-8") as text:
                     text.write(",%s" % city.areaname)
                     text.write(",%s" % zone.areaname)
                     text.write(",%s" % tone.areaname)
+                    text.write(",%s" % tone.lng)
+                    text.write(",%s" % tone.lat)
                     text.write("\n")
 db.close()
