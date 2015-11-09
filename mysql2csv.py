@@ -20,7 +20,13 @@ class Sheng(Model):
         database = db
 
 db.connect()
-shengs = Sheng.select().where(Sheng.parentId == "0")
-for sheng in shengs:
-    print sheng.id, sheng.areaname, sheng.shortname
+provinces = Sheng.select().where(Sheng.parentId == "0")
+for province in provinces:
+    cities = Sheng.select().where(Sheng.parentId == province.id)
+    for city in cities:
+        zones = Sheng.select().where(Sheng.parentId == city.id)
+        for zone in zones:
+            tones = Sheng.select().where(Sheng.parentId == zone.id)
+            for tone in tones:
+                print province.areaname + city.areaname + zone.areaname + tone.areaname
 db.close()
