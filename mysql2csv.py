@@ -20,7 +20,7 @@ class Sheng(Model):
         database = db
 
 db.connect()
-shengs = Sheng.select().where(Sheng.id == "110000")
+shengs = Sheng.select().where(Sheng.parentId == "0")
 for sheng in shengs:
     print sheng.id, sheng.areaname, sheng.shortname
 db.close()
